@@ -1,0 +1,33 @@
+{
+	"folders": [
+		{
+			"name": "tjgo",
+			"path": "../tjgo"
+		},
+		{
+			"name": "aoc2019",
+			"path": "../aoc2019"
+		},
+		{
+			"name": "aoc2020",
+			"path": "../aoc2020"
+		},
+		{
+			"name": "aoc2021",
+			"path": "../aoc2021"
+		},
+		{
+			"name": "aoc2022",
+			"path": "../aoc2022"
+		},
+		{
+			"name": "aoc2023",
+			"path": "."
+		},
+		{
+			"name": "day2",
+			"path": "day2"
+		}
+	],
+	"settings": {}
+}
