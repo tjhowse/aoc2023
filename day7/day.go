@@ -64,6 +64,35 @@ func (h *hand) BinCards() {
 }
 
 func (h *hand) Calc() int {
+
+	if h.binned['J'] == 0 {
+		return CalcImpl(h.binned)
+	}
+
+	// Replace J with the most common other card
+	max := 0
+	maxCard := ' '
+	for card, count := range h.binned {
+		if count > max && card != 'J' {
+			max = count
+			maxCard = card
+		}
+	}
+	if max == 1 {
+
+	}
+	// println("Rebinning J to", string(maxCard), "in", h.s)
+	rebinned := h.binned
+	rebinned[maxCard] += h.binned['J']
+	rebinned['J'] = 0
+	// for k, v := range rebinned {
+	// 	println(string(k), v)
+	// }
+	return CalcImpl(rebinned)
+
+}
+
+func CalcImpl(binned map[rune]int) int {
 	/*
 		6: 5 of kind
 		5: 4 of kind
@@ -76,7 +105,7 @@ func (h *hand) Calc() int {
 
 	counts := make(map[int]int)
 
-	for _, count := range h.binned {
+	for _, count := range binned {
 		counts[count] += 1
 	}
 
@@ -111,7 +140,8 @@ func RuneToScore(r rune) int {
 	case 'Q':
 		return 12
 	case 'J':
-		return 11
+		// return 11
+		return 1
 	case 'T':
 		return 10
 	default:
@@ -158,4 +188,6 @@ func main1(inputfile string) {
 	}
 
 	println(total)
+	// 253181716 wrong
+	// 253473930 right
 }
