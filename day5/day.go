@@ -29,19 +29,6 @@ func main() {
 	// println(end.Sub(start).Milliseconds())
 }
 
-func get_score2(winner []int, haver []int) int {
-	score := 0
-	for _, w := range winner {
-		for _, h := range haver {
-			if h != w {
-				continue
-			}
-			score += 1
-		}
-	}
-	return score
-}
-
 type translate struct {
 	sourceRangeStart      int
 	destinationRangeStart int
